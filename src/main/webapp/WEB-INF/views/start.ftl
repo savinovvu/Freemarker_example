@@ -10,19 +10,15 @@
     <script type="text/javascript" src="webjars/datatables/1.10.12/js/jquery.dataTables.min.js" defer></script>
     <script type="text/javascript" src="webjars/datatables/1.10.12/js/dataTables.bootstrap.min.js" defer></script>
 </head>
-<body>
+<body >
 
 
+<div style="margin:30px">
+<#import "lib/example.ftl" as e>
+<@e.inputForm />
+</div>
 
-<form>
-    <label  for="login">login</label>
-    <input id="login" type="text">
-    <label  for="login">password</label>
-    <input id="password" type="text">
-    <label>Birth Date</label>
-    <input id="birthDate"type="text">
-
-</form>
+<div style="margin:30px"></div>
 
 <table class="table table-bordered table-stripped table-condensed">
     <thead>
@@ -52,20 +48,7 @@
 
 </table>
 
-<#macro repeat count>
-    <#list 1..count as x>
-        <#nested x, x/2, x==count> <br>
-    </#list>
-</#macro>
-<@repeat count=4 ; c, halfc, last>
-${c}. ${halfc}<#if last> Last!</#if>
-</@repeat>
-
-<#import "lib/example.ftl" as e>
-
-Some Web page...
-<@e.copyright date="1999-2002"/>
-${e.mail}
+<p>Всего записей: ${persons?size}</p>
 
 
 
